@@ -1,5 +1,5 @@
 <?php
-
+header('Content-type: application/json' );
 $superheroes = [
   [
       "id" => 1,
@@ -65,8 +65,45 @@ $superheroes = [
 
 ?>
 
+<!-- Used to stop the UL from being sent to the when a fetch request is sent to this file. -->
+<?php if (filter_var($_GET['query'], FILTER_SANITIZE_STRING) =='original'): ?>
 <ul>
 <?php foreach ($superheroes as $superhero): ?>
   <li><?= $superhero['alias']; ?></li>
 <?php endforeach; ?>
 </ul>
+<?php endif ?>
+
+<?php
+    $query = filter_var($_GET['query'], FILTER_SANITIZE_STRING);
+    if($query == null){
+        $superheroData = [
+            "found" => TRUE,
+            "heroes" => $superheroes,
+            "type" => 'multiple'
+        ];
+        echo json_encode($superheroData, JSON_PRETTY_PRINT);
+    }else{
+        $found = FALSE;
+        foreach ($superheroes as $superhero){
+            if($superhero['name'] == $query || $superhero['alias'] == $query){
+                $found = TRUE;
+                $superheroData = [
+                    "found" => $found,
+                    "hero" => $superhero,
+                    "type" => 'single'
+                ];
+                echo json_encode($superheroData, JSON_PRETTY_PRINT);
+                
+            }
+        }
+        if(!$found){
+            $superheroData = [
+                "found" => $found,
+                "hero" => '',
+                "type" => 'single'
+            ];
+            echo json_encode($superheroData, JSON_PRETTY_PRINT);
+        }
+    }
+?>

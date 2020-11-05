@@ -1,0 +1,62 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.head-con{
+    background-color: #004B90;
+    color: white;
+    width: 100%;
+    padding: 30px 0;
+    text-align: center;
+}
+.head-con h1, .head-con p{
+    margin: 5px;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Arvo', serif;
+}
+h2, h3, h4{
+    color: #004B90;
+}
+h3, h4{
+    margin: 10px 0;
+}
+
+.body-con{
+    padding: 20px 140px;
+}
+form p{
+    font-weight: 600;
+}
+#name{
+    width: 80%;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+#name:focus{
+    outline-color: #004B90;
+}
+
+.btn{
+    padding: 8px 25px;
+    border-radius: 5px;
+    background-color: #004B90;
+    font-size: 16px;
+    color: white;
+    border: none;
+}
+.btn:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+hr{
+    opacity: 0.7;
+}
+
+.not-found{
+    color: #BB0202;
+    font-weight: 700;
+}

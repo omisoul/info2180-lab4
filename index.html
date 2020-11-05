@@ -4,12 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avengers Search</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Avengers Character Search</h1>
-    <button class="btn">Search</button>
-
+    <div class="head-con">
+        <h1>Avengers Earth’s Mightiest Hero</h1>
+        <p>Find information on the world’s mightiest heros</p>
+    </div>
+    <div class="body-con">
+        <form method="GET" class="form">
+            <p>Search by Full Name or Alias</p>
+            <input type="text" name="name" id="name" placeholder="e.g. Tony Stark or Ironman" value="">
+            <input type="submit" value="Search" class="btn">
+        </form>
+        <h2>Result</h2>
+        <hr>
+        <ul class="heroList"></ul>
+        <div class="heroInfo"></div>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
