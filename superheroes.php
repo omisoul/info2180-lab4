@@ -65,7 +65,6 @@ $superheroes = [
 
 ?>
 
-<!-- Used to stop the UL from being sent to the when a fetch request is sent to this file. -->
 <?php if (filter_var($_GET['query'], FILTER_SANITIZE_STRING) =='original'): ?>
 <ul>
 <?php foreach ($superheroes as $superhero): ?>
@@ -75,7 +74,7 @@ $superheroes = [
 <?php endif ?>
 
 <?php
-    $query = filter_var($_GET['query'], FILTER_SANITIZE_STRING);
+    $query = filter_var($_GET['query'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
     if($query == null){
         $superheroData = [
             "found" => TRUE,

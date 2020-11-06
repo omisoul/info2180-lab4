@@ -1,9 +1,9 @@
+
 let findCharater = async (name) =>{
     let heroList = document.querySelector('.heroList');
     let heroInfo = document.querySelector('.heroInfo')
     heroList.innerHTML = "";
     heroInfo.innerHTML = "";
-
     //Error handling, checks if the user entered 'original' which returns HTML instead of JSON
     try{
         let res = await fetch(`superheroes.php?query=${name}`)
